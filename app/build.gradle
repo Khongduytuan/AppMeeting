@@ -67,7 +67,7 @@ dependencies {
 //    implementation 'com.google.firebase:firebase-messaging:23.0.3'
 //    implementation 'com.google.firebase:firebase-firestore:24.1.1'
 
-    // thư viện fire như video
+    // thư viện firebase như video
     implementation 'com.google.firebase:firebase-messaging:20.2.3'
     implementation 'com.google.firebase:firebase-firestore:21.5.0'
 
@@ -76,4 +76,7 @@ dependencies {
 //    implementation ('org.jitsi.react:jitsi-meet-sdk:8.1.2') { transitive = true }
     // phiên bản theo youtube
     implementation ('org.jitsi.react:jitsi-meet-sdk:2.8.2') { transitive = true }
+
+    // thư viện firebase để xác thực người dùng
+    implementation 'com.google.firebase:firebase-auth:22.0.0'
 }

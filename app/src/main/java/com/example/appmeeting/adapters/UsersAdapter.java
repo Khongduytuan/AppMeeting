@@ -81,25 +81,22 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
                 }
                 return true;
             });
-            userContainer.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (imageSelected.getVisibility() == View.VISIBLE){
-                        selectedUsers.remove(user);
-                        imageSelected.setVisibility(View.GONE);
-                        imageVideoMeeting.setVisibility(View.VISIBLE);
-                        imageAudioMeeting.setVisibility(View.VISIBLE);
-                        if (selectedUsers.size() == 0){
-                            usersListener.onMultipleUsersAction(false);
-                        }
+            userContainer.setOnClickListener(v -> {
+                if (imageSelected.getVisibility() == View.VISIBLE){
+                    selectedUsers.remove(user);
+                    imageSelected.setVisibility(View.GONE);
+                    imageVideoMeeting.setVisibility(View.VISIBLE);
+                    imageAudioMeeting.setVisibility(View.VISIBLE);
+                    if (selectedUsers.size() == 0){
+                        usersListener.onMultipleUsersAction(false);
                     }
-                    else {
-                        if (selectedUsers.size() > 0){
-                            selectedUsers.add(user);
-                            imageSelected.setVisibility(View.VISIBLE);
-                            imageVideoMeeting.setVisibility(View.GONE);
-                            imageAudioMeeting.setVisibility(View.GONE);
-                        }
+                }
+                else {
+                    if (selectedUsers.size() > 0){
+                        selectedUsers.add(user);
+                        imageSelected.setVisibility(View.VISIBLE);
+                        imageVideoMeeting.setVisibility(View.GONE);
+                        imageAudioMeeting.setVisibility(View.GONE);
                     }
                 }
             });

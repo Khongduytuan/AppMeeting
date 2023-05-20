@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -19,6 +20,7 @@ import com.example.appmeeting.utilities.PreferenceManager;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -72,6 +74,13 @@ public class SignUpActivty extends AppCompatActivity {
     public void signUp(){
         buttonSignUp.setVisibility(View.INVISIBLE);
         signUpProgressBar.setVisibility(View.VISIBLE);
+//        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+//        String email = inputEmail.getText().toString().trim();
+//        String password = inputPassWord.getText().toString().trim();
+//        firebaseAuth.createUserWithEmailAndPassword(email, password)
+//                .addOnCompleteListener(task -> {
+//                    if (task.isSuccessful()) {
+                        // Người dùng đăng ký thành công
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         HashMap<String, Object> user = new HashMap<>();
         user.put(Constants.KEY_FIRST_NAME, inputFirstName.getText().toString());
@@ -93,9 +102,14 @@ public class SignUpActivty extends AppCompatActivity {
                     startActivity(intent);
                 })
                 .addOnFailureListener(e -> {
-                    buttonSignUp.setVisibility(View.INVISIBLE);
-                    signUpProgressBar.setVisibility(View.VISIBLE);
+                    buttonSignUp.setVisibility(View.VISIBLE);
+                    signUpProgressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(SignUpActivty.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
+//                    } else {
+//                        Toast.makeText(this, "Error Sign Up", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+
     }
 }

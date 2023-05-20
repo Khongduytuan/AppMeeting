@@ -16,4 +16,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorMeetingInvitationStart">#4004BB</color>
     <color name="colorMeetingInvitationEnd">#8A1AAA</color>
+    <color name="backgroundMain">#D2D2FA</color>
 </resources>

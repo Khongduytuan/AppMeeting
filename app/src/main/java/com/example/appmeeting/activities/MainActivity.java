@@ -9,6 +9,7 @@ import android.os.PowerManager;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements UsersListener {
     private List<User> users;
     private UsersAdapter usersAdapter;
     private TextView textErrorMessage;
+    private LinearLayout linear_signout;
+    private TextView textAvt;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ImageView imageConference;
 
@@ -57,13 +60,18 @@ public class MainActivity extends AppCompatActivity implements UsersListener {
         imageConference = findViewById(R.id.imageConference);
         preferenceManager = new PreferenceManager(getApplicationContext());
         TextView textTitle = findViewById(R.id.textTitle);
+        linear_signout = findViewById(R.id.linear_signout);
+        textAvt = findViewById(R.id.textAvt);
+
         textTitle.setText(String.format(
                 "%s %s",
                 preferenceManager.getString(Constants.KEY_FIRST_NAME),
                 preferenceManager.getString(Constants.KEY_LAST_NAME)
         ));
 
-        findViewById(R.id.textSignOut).setOnClickListener(v -> signOut());
+        textAvt.setText((preferenceManager.getString(Constants.KEY_FIRST_NAME)).substring(0,1));
+
+        linear_signout.setOnClickListener(v -> signOut());
 
 
         // ChatGPT hướng dẫn nó cũng đẩy FCM_TOKEN lên nhưng ngắn

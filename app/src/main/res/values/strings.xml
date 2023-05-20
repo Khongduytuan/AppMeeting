@@ -20,4 +20,8 @@
     <string name="sign_out">Sign Out</string>
     <string name="incoming_meeting_invitation">Incoming Meeting Invitation</string>
     <string name="sending_meeting_invitation">Sending Meeting Invitation</string>
+    <string name="email_forgot">Enter your email to reset password</string>
+    <string name="button_confirm">Confirm</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="welcom_meeting">Welcom Meeting</string>
 </resources>

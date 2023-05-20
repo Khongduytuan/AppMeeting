@@ -31,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class IncomingInvitationActivity extends AppCompatActivity {
+public class IncomingInvitationActivity extends  AppCompatActivity {
     private String meetingType = null;
 
     @Override

@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appmeeting.R;
@@ -35,7 +37,6 @@ public class SignInActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
         findViewById(R.id.textSignUp).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SignUpActivty.class)));
         inputEmail = findViewById(R.id.inputEmail);
         inputPassWord = findViewById(R.id.inputPassWord);
@@ -67,6 +68,7 @@ public class SignInActivity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful() && task.getResult() != null && task.getResult().getDocuments().size() > 0){
                         DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
+                        Log.d("signIn", "documentSnapshot: " + documentSnapshot );
                         preferenceManager.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
                         preferenceManager.putString(Constants.KEY_USER_ID, documentSnapshot.getId());
                         preferenceManager.putString(Constants.KEY_FIRST_NAME, documentSnapshot.getString(Constants.KEY_FIRST_NAME));

@@ -14,6 +14,9 @@
         android:theme="@style/Theme.APPMEETING"
         android:usesCleartextTraffic="true"
         tools:targetApi="s">
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:exported="false" />
         <activity android:name=".activities.OutgoingInvitationActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activities.IncomingInvitationActivity"
